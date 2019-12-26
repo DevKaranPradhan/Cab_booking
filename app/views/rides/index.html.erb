@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+  </style>
+  <title></title>
+</head>
+
+<body>
+
+  <h1>Rides</h1>
+  <!-- <p><%= @count %></p> -->
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Time</th>
+      <th>Location</th>
+      <th>Driver</th>
+      <th>Count</th>
+      <th>Requests</th>
+    </tr>
+    <% @all_rides.each do |ele|%>
+    <tr>
+      <td><%= ele.date %></td>
+      <td><%= ele.time.strftime("%I:%M %p") %></td>
+      <td><%= ele.location %></td>
+      <td><%= ele.driver.first_name + " " + ele.driver.last_name%></td>
+      <td><%= ele.ride_requests.count %></td>
+      <td><%= link_to 'View requests', "rides/#{ele.id}/ride_requests" %></td> <!-- ride_ride_requests_path(ele) -->
+    </tr>
+    <% end %>
+    
+  </table>
+  
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+    }
+  </style>
+  <title></title>
+</head>
+
+<body>
+
+  <h1>Rides</h1>
+  <!-- <p><%= @count %></p> -->
+  <table>
+    <tr>
+      <th>Username</th>
+      <th>Status</th>
+    </tr>
+    <% @requests.each do |ele|%>
+    <tr>
+      <td><%= ele.user.first_name + " " + ele.user.last_name  %></td>
+      <td><%= ele.status %></td>
+    </tr>
+    <% end %>
+    
+  </table>
+  
+</body>
+</html>
