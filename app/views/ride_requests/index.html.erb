@@ -1,31 +1,33 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <style>
-    table, th, td {
-      border: 1px solid black;
-    }
-  </style>
-  <title></title>
+  <title>Ride Requests</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 
-  <h1>Rides</h1>
-  <!-- <p><%= @count %></p> -->
-  <table>
-    <tr>
-      <th>Username</th>
-      <th>Status</th>
-    </tr>
-    <% @requests.each do |ele|%>
-    <tr>
-      <td><%= ele.user.first_name + " " + ele.user.last_name  %></td>
-      <td><%= ele.status %></td>
-    </tr>
-    <% end %>
+  <div class="container">
+
+    <h2>Ride Requests</h2>
+    <!-- <p><%= @count %></p> -->
+    <table class="table table-hover">
+      <tr>
+        <th class="text-center">Username</th>
+        <th class="text-center">Status</th>
+      </tr>
+      <% @requests.each do |ele|%>
+      <tr>
+        <td class="text-center"><%= ele.user.first_name + " " + ele.user.last_name  %></td>
+        <td class="text-center"><%= ele.status %></td>
+      </tr>
+      <% end %>
     
-  </table>
-  
+    </table>
+  </div>
 </body>
 </html>

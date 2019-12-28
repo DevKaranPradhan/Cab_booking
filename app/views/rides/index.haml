@@ -1,0 +1,35 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title All Rides
+    %meta{charset: "utf-8"}/
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    %link{href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css", rel: "stylesheet"}/
+    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
+    %script{src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"}
+  %body
+    .container
+      %h2 Rides
+      %p All rides
+      %table.table.table-hover
+        %tr
+          %th.text-center Date
+          %th.text-center Time
+          %th.text-center Location
+          %th.text-center Driver
+          %th.text-center Count
+          %th.text-center Book Ride
+          %th.text-center Requests
+        - @all_rides.each do |ele|
+          %tr
+            %td.text-center= ele.date
+            %td.text-center= ele.time.strftime("%I:%M %p")
+            %td.text-center= ele.location
+            %td.text-center= ele.driver.first_name + " " + ele.driver.last_name
+            %td.text-center= ele.ride_requests.count
+            %td.text-center
+              %button.btn.btn-default{type: "button"}= link_to 'book ride', new_ride_ride_request_path(ele)
+            %td.text-center
+              %button.btn.btn-default{type: "button"}= link_to 'View requests', "rides/#{ele.id}/ride_requests"
+      %a.btn.btn-default{href: "/users/new", type: "button"} create new user

@@ -21,4 +21,13 @@ class RidesController < ApplicationController
 
   end
 
+  # def new
+  #   render :new
+  # end
+
+  # def create
+  #   puts params
+  #   render :new
+  # end
+
 end

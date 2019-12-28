@@ -1,0 +1,33 @@
+!!!
+%html
+  %head
+    %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title All Users
+    %meta{charset: "utf-8"}/
+    %meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+    %link{href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css", rel: "stylesheet"}/
+    %script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
+    %script{src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"}
+  %body
+    .container
+      %h2 Users
+      %p All users
+      %table.table.table-hover
+        %tr
+          %th.text-center Name
+          %th.text-center Contact Number
+        - @all_users.each do |ele|
+          %tr
+            %td.text-center= ele.first_name + " " + ele.last_name
+            %td.text-center= ele.contact_number
+      %a.btn.btn-default{href: "/users/new", type: "button"} create new user
+      %br
+      %h2 Login
+      = form_with(url: "/users", method: "SHOW") do
+        = label_tag(:email, "email id")
+        = text_field_tag(:email)
+        %br
+        = label_tag(:password, "password")
+        = password_field_tag(:password)
+        %br
+        = submit_tag("Submit")
