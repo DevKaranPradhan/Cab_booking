@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :ride_requests
   validates_associated :ride_requests
 
+  has_secure_password
 
   before_save do
     self.first_name = self.first_name.titleize

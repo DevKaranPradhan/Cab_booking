@@ -1,13 +1,19 @@
-= form_with(url: "/ride_requests", method: "POST") do
-  / = label_tag(:email, "email id")
-  / = text_field_tag(:email)
-  / %br
-  / = label_tag(:password, "password")
-  / = password_field_tag(:password)
-  / %br
-  = label_tag(:destination, "destination")
-  = text_field_tag(:destination)
-  %br
-  = submit_tag("Submit")
+%meta{charset: "utf-8"}/
+%meta{content: "width=device-width, initial-scale=1", name: "viewport"}/
+%link{href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css", rel: "stylesheet"}/
+%script{src: "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
+%script{src: "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"}
 
-   
+
+.container
+  = form_with(url: "/ride_requests", method: "POST") do
+    / = label_tag(:email, "email id")
+    / = text_field_tag(:email)
+    / %br
+    / = label_tag(:password, "password")
+    / = password_field_tag(:password)
+    / %br
+    = label_tag(:destination, "destination")
+    = text_field_tag(:destination)
+    %br
+    = submit_tag("Submit")   
